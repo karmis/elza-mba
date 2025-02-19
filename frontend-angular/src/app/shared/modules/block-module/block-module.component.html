@@ -1,0 +1,21 @@
+<div class="app-block">
+  <div class="line"></div>
+  <div class="title">
+    <div>
+      <div class="line"></div>
+      <span class="text">{{ title }}</span>
+    </div>
+    <ul class="content">
+      <ng-container *ngFor="let product of products">
+        <ng-container *ngFor="let specializedSubjects of product.specializedSubjects">
+            <ng-container *ngFor="let skillModel of specializedSubjects.skills">
+              <li>
+                {{ skillModel.string }}
+              </li>
+            </ng-container>
+        </ng-container>
+      </ng-container>
+    </ul>
+  </div>
+
+</div>

@@ -1,0 +1,70 @@
+@use "./../../../../styles/variables.scss" as vars;
+.block-accent {
+  background: vars.$primary;
+}
+.block-secondary {
+  background: vars.$secondary;
+}
+.block-accent, .block-secondary {
+  > h2 {
+    padding-left: 5%;
+    padding-top: 43px;
+    font-weight: vars.$font-weight-bold;
+    font-size:  vars.$caption-size;
+    color: vars.$primary-color;
+    margin-bottom: 0;
+  }
+
+}
+
+.block-accent, .block-secondary {
+  >  p {
+    padding-bottom: 30px;
+    padding-left: 5%;
+    font-weight: vars.$font-weight-base;
+    font-size: vars.$font-size;
+    color: vars.$primary-color;
+  }
+}
+.folder-left, .folder-right {
+  position: relative;
+}
+.folder-right {
+  box-shadow: none;
+}
+.folder-left:before, .folder-right:before, .folder-left:after, .folder-right:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+.folder-left:before {
+  top: 0;
+  left: 0;
+  border-bottom: 44px solid vars.$accent;
+  border-left: 44px solid transparent;
+}
+.folder-left:after {
+  top: 0;
+  left: 0;
+  border-top: 43px solid vars.$bg;
+  border-right: 43px solid transparent;
+}
+
+.folder-right:before {
+  top: 0;
+  right: 0;
+  border-bottom: 44px solid vars.$accent;
+  border-right: 44px solid transparent;
+}
+
+.folder-right:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-top: 43px solid vars.$bg;
+  border-left: 43px solid transparent;
+}

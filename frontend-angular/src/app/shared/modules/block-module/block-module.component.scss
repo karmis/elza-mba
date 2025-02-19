@@ -1,0 +1,76 @@
+@use "./../../../../styles/variables.scss" as vars;
+@use 'sass:color';
+.app-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+
+  .title {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+
+    .line {
+      width: 100%;
+      height: 4px;
+      background-color: vars.$primary;
+      margin-right: 10px;
+    }
+
+    .number {
+      font-size: 48px;
+      font-weight: bold;
+      color: vars.$primary;
+      margin-right: 5px;
+      vertical-align: text-top;
+    }
+
+    .text {
+      font-size: 36px;
+      font-weight: bold;
+      text-transform: lowercase;
+      letter-spacing: 2px;
+      vertical-align: text-top;
+    }
+  }
+
+  .content {
+    list-style-type: none;
+    padding-left: 10%;
+
+    li {
+      font-size: vars.$font-size;
+      line-height: 1.5;
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 20px;
+
+      &::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        top: 15px;
+        transform: translateY(-50%);
+        vertical-align: text-top;
+        font-size: 24px;
+        color: vars.$primary;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content li {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}

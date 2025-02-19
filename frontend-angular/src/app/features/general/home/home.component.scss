@@ -1,0 +1,96 @@
+@use 'sass:color';
+@use "../../../../styles/variables";
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
+.block-module {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.app-block {
+  margin-bottom: 20px;
+}
+
+.accordion-button {
+  background-color: white;
+  //color: $secondary-color;
+  border: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    //background-color: $primary-color
+  }
+
+  &.collapsed {
+    background-color: white;
+    //color: $secondary-color;
+  }
+}
+
+.accordion-collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+
+  &.show {
+    max-height: 500px; // Adjust as needed
+  }
+}
+
+.practical-modules, .final-assessment {
+  border-radius: 5px;
+
+  p, ul {
+    margin: 0;
+  }
+
+  ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .block-module {
+    padding: 10px;
+  }
+
+  .app-block {
+    margin-bottom: 10px;
+  }
+
+  .practical-modules, .final-assessment {
+    margin-top: 10px;
+  }
+
+  .accordion-item {
+    margin-bottom: 10px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    animation: none;
+  }
+}

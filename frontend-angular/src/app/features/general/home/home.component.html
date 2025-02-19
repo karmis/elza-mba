@@ -1,0 +1,47 @@
+<!--for desktop markup-->
+<div class="container">
+  <h1 class="text-center w-100">Специализированные дисциплины</h1>
+  <ng-container *ngIf="!uiService.isMobile">
+    <div class="row">
+      <div *ngFor="let mod of programs|keyvalue; let i=index;" class="col-md-12 col-lg-6">
+        <h2 class="pl-15">{{ mod.value[0].title }}</h2>
+        <div class="card">
+          <app-block
+            [title]="mod.value[0].study_field.name"
+            [products]="mod.value"
+          ></app-block>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!--for mobile markup-->
+    <ng-container *ngIf="uiService.isMobile">
+      <div class="row">
+
+        <div class="col-md-12" *ngFor="let mod of programs|keyvalue; let i=index;">
+          <h2>{{ mod.value[0].title }}</h2>
+          <app-accordion
+            [products]="mod.value"
+          ></app-accordion>
+        </div>
+      </div>
+    </ng-container>
+
+    <div class="row">
+      <div class="col-md-6 hover-ease-in-out">
+        <app-block-accent
+          [folder]="'right'"
+          [header]="'Практические модули'"
+          [content]="'Работа над собственными проектами: практика групповых взаимодействий, кейс-методы, эссе'"
+          [kind]="'accent'"></app-block-accent>
+      </div>
+      <div class="col-md-6 hover-ease-in-out">
+        <app-block-accent
+          [folder]="'none'"
+          [header]="'Итоговая аттестация'"
+          [content]="'Бизнес-проектирование (подготовка итоговой аттестационной работы, консультирование по бизнес-проектированию)'"
+          [kind]="'secondary'"></app-block-accent>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+@media (prefers-reduced-motion: no-preference) {
+  .hover-ease-in-out:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.hover-ease-in-out {
+  transition: transform 0.3s ease-in-out;
+}

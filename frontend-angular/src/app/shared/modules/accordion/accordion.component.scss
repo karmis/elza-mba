@@ -1,0 +1,84 @@
+@use "./../../../../styles/variables.scss" as vars;
+@use 'sass:color';
+.accordion {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+
+  &-item {
+    border-bottom: 1px solid #ddd;
+  }
+
+  &-header {
+    display: flex;
+    background-color: vars.$accent;
+    padding: 15px;
+    cursor: pointer;
+    font-size: vars.$font-size;
+    font-weight: bold;
+    user-select: none;
+
+    &:hover {
+      background-color: color.adjust(vars.$primary, $lightness: -10%);
+    }
+  }
+  &-title {
+    padding-left: 10px;
+    font-weight: vars.$font-weight-middle;
+    &.open {
+      color: vars.$primary-color;
+    }
+  }
+
+  .icon {
+    transition: transform 0.3s ease-in-out;
+    font-size: vars.$font-size;
+    font-weight: normal;
+    text-align: center;
+    height: 27px;
+    color: vars.$secondary-color;
+    &.open {
+      transform: rotate(180deg);
+      color: vars.$primary-color;
+    }
+  }
+
+  &-content {
+    .list {
+      list-style-type: none;
+      li {
+        font-size: vars.$font-size;
+        line-height: 1.5;
+        margin-bottom: 10px;
+        position: relative;
+        margin-left: -15px;
+        &::before {
+          content: '•';
+          position: absolute;
+          left: -30px;
+          top: 15px;
+          transform: translateY(-50%);
+          vertical-align: text-top;
+          font-size: 24px;
+          color: vars.$primary;
+        }
+      }
+    }
+
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+    padding: 0 15px;
+
+    p {
+      margin: 0;
+      padding: 10px 0;
+    }
+
+    &.open {
+      max-height: 100%;
+      height: 100%;
+      padding: 15px;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@use "./variables" as vars;
+@use "./fonts/styreneaweb/styreneaweb";
+@use "./bootstrap-custom";
+body {
+  font-family: 'Styrene A Web', serif;
+  margin: 0;
+  padding: 0;
+  background-color: vars.$bg;
+}
+
+.pl-15 {
+  padding-left: 15px;
+}
+
+.text-center {
+  text-align: center!important;
+}
